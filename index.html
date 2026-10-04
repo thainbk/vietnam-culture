@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HỒN VIỆT - Tinh Hoa Văn Hóa Ngàn Năm | Vietnam Cultural Heritage</title>
+  <meta name="description" content="Cổng thông tin di sản văn hóa Việt Nam. Khám phá 4.000 năm văn hiến, mỹ vị ẩm thực ngũ hành, cổ phục cung đình, âm nhạc truyền thống và danh lam thắng cảnh UNESCO.">
+  <meta name="keywords" content="văn hóa việt nam, di sản việt nam, ẩm thực việt nam, áo dài, cổ phục, nhã nhạc cung đình, vịnh hạ long, hội an, trống đồng đông sơn">
+  <meta name="theme-color" content="#080b0e">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HỒN VIỆT - Tinh Hoa Văn Hóa Ngàn Năm">
+  <meta property="og:description" content="Khám phá bản sắc di sản, ẩm thực tinh hoa, cổ phục quý phái và âm nhạc dân tộc Việt Nam.">
+  <meta property="og:image" content="assets/images/hero-vietnam.jpg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23991b1b%22 stroke=%22%23d4af37%22 stroke-width=%224%22/><circle cx=%2250%22 cy=%2250%22 r=%2214%22 fill=%22%23d4af37%22/><path d=%22M50 15 L50 85 M15 50 L85 50 M25 25 L75 75 M25 75 L75 25%22 stroke=%22%23d4af37%22 stroke-width=%223%22/></svg>">
+</head>
+<body>
+
+  <!-- ================= SITE HEADER ================= -->
+  <header class="site-header" id="site-header">
+    <div class="container navbar">
+      <!-- Brand Logo with rotating Dong Son motif -->
+      <a href="#" class="brand-logo" id="brand-logo-link" aria-label="Trang chủ Hồn Việt">
+        <div class="logo-symbol">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="46" stroke="#d4af37" stroke-width="3" stroke-dasharray="3 3"/>
+            <circle cx="50" cy="50" r="34" stroke="#d4af37" stroke-width="1.5"/>
+            <polygon points="50,18 58,42 82,50 58,58 50,82 42,58 18,50 42,42" fill="#d4af37" opacity="0.9"/>
+            <circle cx="50" cy="50" r="7" fill="#fbe69e"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">HỒN VIỆT</span>
+          <span class="logo-sub" data-i18n="brand_sub">TINH HOA VĂN HÓA</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Điều hướng chính">
+        <ul class="nav-links" id="main-nav-menu">
+          <li><a href="#heritage" class="nav-link" id="nav-heritage-link" data-i18n="nav_heritage">Di Sản</a></li>
+          <li><a href="#cuisine" class="nav-link" id="nav-cuisine-link" data-i18n="nav_gastronomy">Mỹ Vị</a></li>
+          <li><a href="#costumes" class="nav-link" id="nav-costumes-link" data-i18n="nav_costumes">Cổ Phục</a></li>
+          <li><a href="#music" class="nav-link" id="nav-music-link" data-i18n="nav_music">Âm Nhạc</a></li>
+          <li><a href="#festivals" class="nav-link" id="nav-festivals-link" data-i18n="nav_festivals">Lễ Hội</a></li>
+          <li><a href="#experience" class="nav-link" id="nav-experience-link" data-i18n="nav_experience">Trải Nghiệm</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Controls -->
+      <div class="header-actions">
+        <!-- Ambient Sound Audio Button -->
+        <button class="audio-toggle-btn" id="ambient-toggle-btn" title="Bật/Tắt âm hưởng dân tộc thư giãn">
+          <div class="audio-bars">
+            <span class="audio-bar"></span>
+            <span class="audio-bar"></span>
+            <span class="audio-bar"></span>
+            <span class="audio-bar"></span>
+          </div>
+          <span data-i18n="ambient_audio">Âm Sắc</span>
+        </button>
+
+        <!-- Bilingual Switcher -->
+        <div class="lang-switch-wrap">
+          <button class="lang-btn active" data-lang="vi" id="btn-lang-vi">VI</button>
+          <button class="lang-btn" data-lang="en" id="btn-lang-en">EN</button>
+        </div>
+
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Mở menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-container">
+      <img src="assets/images/hero-vietnam.jpg" alt="Toàn cảnh di sản văn hóa Việt Nam kỳ vĩ bên sông sen và cố đô" class="hero-bg-image">
+      <div class="hero-overlay"></div>
+      <canvas id="lotus-canvas"></canvas>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge-wrap">
+        <span class="badge" data-i18n="hero_badge">✨ Di Sản Thế Giới UNESCO & 4.000 Năm Văn Hiến</span>
+      </div>
+
+      <h1 class="hero-title gold-gradient-text" data-i18n="hero_title">HỒN THIÊNG ĐẤT VIỆT</h1>
+      
+      <p class="hero-subtitle" data-i18n="hero_sub">
+        Khám phá bản sắc 4.000 năm văn hiến – Từ âm hưởng cồng chiêng đại ngàn, mỹ vị ngũ hành tinh tế đến tà áo dài thướt tha bên dòng sông di sản.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#heritage" class="btn btn-primary" id="hero-btn-explore" data-i18n="hero_cta_explore">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Khám Phá Di Sản
+        </a>
+        <a href="#experience" class="btn btn-red" id="hero-btn-lantern" data-i18n="hero_cta_lantern">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19H7v2h10v-2h2.65l-.62-1.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zm0 2c3.87 0 7 3.13 7 7 0 1.54-.5 2.97-1.35 4.13L16.8 17H7.2l-.85-.87C5.5 14.97 5 13.54 5 12c0-3.87 3.13-7 7-7z"/></svg>
+          Thả Hoa Đăng Cầu An
+        </a>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="hero-stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">4.000+</span>
+          <span class="stat-label" data-i18n="stat_history">Năm Lịch Sử Hào Hùng</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">54</span>
+          <span class="stat-label" data-i18n="stat_ethnic">Dân Tộc Anh Em</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">08</span>
+          <span class="stat-label" data-i18n="stat_unesco">Di Sản Thế Giới UNESCO</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">15+</span>
+          <span class="stat-label" data-i18n="stat_heritage">Di Sản Phi Vật Thể</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 1: REGIONAL HERITAGE ================= -->
+  <section class="cultural-section" id="heritage">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="sec_heritage_tag">Danh Thắng & Non Sông Gấm Vóc</span>
+        <h2 data-i18n="sec_heritage_title">Bản Đồ Di Sản Ba Miền</h2>
+        <p data-i18n="sec_heritage_desc">Hành trình trải dài từ non cao Tây Bắc, kỳ quan đá vôi Hạ Long, chốn hoàng cung trầm mặc cố đô đến miệt vườn sông nước trù phú.</p>
+        <div class="section-divider">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
+        </div>
+      </div>
+
+      <!-- Regional Filters -->
+      <div class="heritage-filters">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tất Cả</button>
+        <button class="filter-btn" data-filter="north" data-i18n="filter_north">Miền Bắc</button>
+        <button class="filter-btn" data-filter="central" data-i18n="filter_central">Miền Trung</button>
+        <button class="filter-btn" data-filter="south" data-i18n="filter_south">Miền Nam</button>
+      </div>
+
+      <!-- Heritage Cards Grid -->
+      <div class="heritage-grid">
+        <!-- 1. Ha Long & Trang An -->
+        <article class="heritage-card" data-region="north">
+          <div class="heritage-img-wrap">
+            <img src="assets/images/halong-vietnam.jpg" alt="Vịnh Hạ Long non nước hữu tình với thuyền buồm đỏ buồm nâu">
+            <span class="heritage-region-tag">Bắc Bộ</span>
+            <span class="heritage-unesco-badge">UNESCO</span>
+          </div>
+          <div class="heritage-info">
+            <h3 class="heritage-title">Vịnh Hạ Long & Tràng An</h3>
+            <p class="heritage-desc">Hàng nghìn đảo đá vôi kỳ vĩ triệu năm nhô lên giữa làn nước biếc cùng quần thể di sản hỗn hợp Văn hóa & Thiên nhiên độc nhất Đông Nam Á.</p>
+            <div class="heritage-footer">
+              <span class="heritage-location">📍 Quảng Ninh & Ninh Bình</span>
+              <button class="btn-card-more" data-modal="halong">
+                Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Hue Imperial Citadel -->
+        <article class="heritage-card" data-region="central">
+          <div class="heritage-img-wrap">
+            <img src="assets/images/costumes-vietnam.jpg" alt="Cố đô Huế trầm mặc uy nghiêm với hoàng thành và cung điện triều Nguyễn">
+            <span class="heritage-region-tag">Trung Bộ</span>
+            <span class="heritage-unesco-badge">UNESCO</span>
+          </div>
+          <div class="heritage-info">
+            <h3 class="heritage-title">Cố Đô Huế & Nhã Nhạc</h3>
+            <p class="heritage-desc">Kinh đô 143 năm triều Nguyễn với hệ thống hoàng thành, lăng tẩm uy nghiêm phong thủy và di sản Nhã nhạc cung đình đỉnh cao tao nhã.</p>
+            <div class="heritage-footer">
+              <span class="heritage-location">📍 Thừa Thiên Huế</span>
+              <button class="btn-card-more" data-modal="hue">
+                Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Hoi An Ancient Town -->
+        <article class="heritage-card" data-region="central">
+          <div class="heritage-img-wrap">
+            <img src="assets/images/festivals-vietnam.jpg" alt="Đô thị cổ Hội An lung linh đèn lồng rực rỡ bên dòng sông Hoài">
+            <span class="heritage-region-tag">Trung Bộ</span>
+            <span class="heritage-unesco-badge">UNESCO</span>
+          </div>
+          <div class="heritage-info">
+            <h3 class="heritage-title">Đô Thị Cổ Hội An</h3>
+            <p class="heritage-desc">Thương cảng quốc tế sầm uất thế kỷ 16-17 lưu giữ nguyên vẹn mái ngói rêu phong, Chùa Cầu biểu tượng và lễ hội thả hoa đăng lung linh đêm rằm.</p>
+            <div class="heritage-footer">
+              <span class="heritage-location">📍 Quảng Nam</span>
+              <button class="btn-card-more" data-modal="hoian">
+                Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Mekong River & Cai Rang -->
+        <article class="heritage-card" data-region="south">
+          <div class="heritage-img-wrap">
+            <img src="assets/images/mekong-vietnam.jpg" alt="Chợ nổi Cái Răng tấp nập thuyền bè chở đầy hoa trái miền Tây sông nước">
+            <span class="heritage-region-tag">Nam Bộ</span>
+            <span class="heritage-unesco-badge">Văn Hóa Sông Nước</span>
+          </div>
+          <div class="heritage-info">
+            <h3 class="heritage-title">Chợ Nổi & Miệt Vườn Phương Nam</h3>
+            <p class="heritage-desc">Đặc trưng văn hóa giao thương thủy lộ độc đáo của Đồng bằng sông Cửu Long với những ghe xuồng chở trĩu cây trái ngọt lành và đờn ca tài tử.</p>
+            <div class="heritage-footer">
+              <span class="heritage-location">📍 Cần Thơ & Tây Nam Bộ</span>
+              <button class="btn-card-more" data-modal="halong">
+                Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Thang Long Citadel -->
+        <article class="heritage-card" data-region="north">
+          <div class="heritage-img-wrap">
+            <img src="assets/images/hero-vietnam.jpg" alt="Hoàng thành Thăng Long trung tâm quyền lực lịch sử nghìn năm">
+            <span class="heritage-region-tag">Bắc Bộ</span>
+            <span class="heritage-unesco-badge">UNESCO</span>
+          </div>
+          <div class="heritage-info">
+            <h3 class="heritage-title">Hoàng Thành Thăng Long</h3>
+            <p class="heritage-desc">Trung tâm quyền lực chính trị và văn hóa liên tục suốt 13 thế kỷ qua các triều Lý, Trần, Lê, Mạc đến thời đại Hồ Chí Minh lịch sử.</p>
+            <div class="heritage-footer">
+              <span class="heritage-location">📍 Ba Đình, Hà Nội</span>
+              <button class="btn-card-more" data-modal="halong">
+                Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Central Highlands Gong -->
+        <article class="heritage-card" data-region="central">
+          <div class="heritage-img-wrap">
+            <img src="assets/images/music-vietnam.jpg" alt="Không gian văn hóa Cồng chiêng Tây Nguyên đại ngàn hùng vĩ">
+            <span class="heritage-region-tag">Tây Nguyên</span>
+            <span class="heritage-unesco-badge">UNESCO</span>
+          </div>
+          <div class="heritage-info">
+            <h3 class="heritage-title">Không Gian Cồng Chiêng</h3>
+            <p class="heritage-desc">Sử thi đại ngàn ngân vang qua tiếng cồng chiêng linh thiêng nối kết con người với thần linh, đất trời qua bao mùa rẫy của đồng bào Ba Na, Gia Rai, Ê Đê.</p>
+            <div class="heritage-footer">
+              <span class="heritage-location">📍 5 Tỉnh Tây Nguyên</span>
+              <button class="btn-card-more" data-modal="hue">
+                Chi tiết <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 2: GASTRONOMY ================= -->
+  <section class="cultural-section" id="cuisine" style="background: rgba(16, 22, 29, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="sec_cuisine_tag">Mỹ Vị Đất Trời & Triết Lý Âm Dương</span>
+        <h2 data-i18n="sec_cuisine_title">Tinh Hoa Ẩm Thực Việt Nam</h2>
+        <p data-i18n="sec_cuisine_desc">Nghệ thuật ẩm thực kết tinh sự cân bằng tuyệt mỹ giữa Ngũ Hành (Chua - Đắng - Ngọt - Cay - Mặn) cùng nguồn nguyên liệu tự nhiên tươi sạch.</p>
+        <div class="section-divider">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
+        </div>
+      </div>
+
+      <!-- Culinary Banner -->
+      <div class="culinary-banner">
+        <img src="assets/images/cuisine-vietnam.jpg" alt="Mâm cỗ ẩm thực Việt Nam tinh túy với Phở bò nghi ngút khói, nem rán giòn tan và bánh mì kẹp">
+        <div class="culinary-banner-overlay">
+          <div class="culinary-banner-text">
+            <span class="badge" style="margin-bottom: 12px;">Di Sản Ẩm Thực Thế Giới</span>
+            <h3>Bản Giao Hưởng Của Hương Vị Tự Nhiên</h3>
+            <p>Khác biệt với phong cách dầu mỡ hay nêm nhiều bơ sữa, ẩm thực Việt chuộng sự thanh tao, hài hòa ngũ vị, sử dụng dồi dào rau thơm nhiệt đới cùng nước mắm cốt tinh khiết.</p>
+            <button class="btn btn-primary btn-sm" data-modal="pho">Khám Phá Công Thức Phở Gia Truyền</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Five Elements (Ngũ Hành) Philosophy in Gastronomy -->
+      <div class="five-elements-container">
+        <!-- Mộc -->
+        <div class="element-card">
+          <div class="element-icon element-moc">🌱</div>
+          <h4 class="element-name">HÀNH MỘC</h4>
+          <div class="element-flavor">Vị Chua (Thanh Nhiệt)</div>
+          <div class="element-ingredient">Chanh, me, khế, giấm bỗng</div>
+        </div>
+        <!-- Hỏa -->
+        <div class="element-card">
+          <div class="element-icon element-hoa">🔥</div>
+          <h4 class="element-name">HÀNH HỎA</h4>
+          <div class="element-flavor">Vị Đắng (Tỉnh Táo)</div>
+          <div class="element-ingredient">Mướp đắng, rau đắng, hạt tiêu</div>
+        </div>
+        <!-- Thổ -->
+        <div class="element-card">
+          <div class="element-icon element-tho">🌾</div>
+          <h4 class="element-name">HÀNH THỔ</h4>
+          <div class="element-flavor">Vị Ngọt (Bồi Bổ)</div>
+          <div class="element-ingredient">Nước hầm xương, mía, mật ong</div>
+        </div>
+        <!-- Kim -->
+        <div class="element-card">
+          <div class="element-icon element-kim">⚡</div>
+          <h4 class="element-name">HÀNH KIM</h4>
+          <div class="element-flavor">Vị Cay (Kích Thích)</div>
+          <div class="element-ingredient">Ớt chỉ thiên, gừng già, sả cây</div>
+        </div>
+        <!-- Thủy -->
+        <div class="element-card">
+          <div class="element-icon element-thuy">🌊</div>
+          <h4 class="element-name">HÀNH THỦY</h4>
+          <div class="element-flavor">Vị Mặn (Đậm Đà)</div>
+          <div class="element-ingredient">Nước mắm nhỉ cốt cá cơm Phú Quốc</div>
+        </div>
+      </div>
+
+      <!-- Signature Dishes Grid -->
+      <div class="dishes-grid">
+        <!-- Dish 1 -->
+        <div class="dish-card">
+          <div class="dish-header">
+            <h4 class="dish-title">Phở Bò Gia Truyền</h4>
+            <span class="dish-region">Hà Nội</span>
+          </div>
+          <div class="dish-body">
+            <p class="dish-desc">Nước dùng ninh xương bò 12 tiếng cùng quế hồi, bánh phở mềm mướt, thịt bò tươi và hành hoa thơm nồng quyến rũ.</p>
+            <div class="dish-tags">
+              <span class="dish-tag">#QuốcHồn</span>
+              <span class="dish-tag">#NướcHầm12h</span>
+              <span class="dish-tag">#TopCNN</span>
+            </div>
+            <button class="btn-recipe" data-modal="pho">Xem Ý Nghĩa & Công Thức</button>
+          </div>
+        </div>
+
+        <!-- Dish 2 -->
+        <div class="dish-card">
+          <div class="dish-header">
+            <h4 class="dish-title">Bánh Mì Kẹp Giòn Rụm</h4>
+            <span class="dish-region">Toàn Quốc</span>
+          </div>
+          <div class="dish-body">
+            <p class="dish-desc">Vỏ bánh xốp giòn, bên trong quyện pa-tê béo, chả lụa thơm, thịt nướng than, đồ chua giòn sần sật và rau mùi thơm ngát.</p>
+            <div class="dish-tags">
+              <span class="dish-tag">#OxfordDictionary</span>
+              <span class="dish-tag">#StreetFoodTop1</span>
+            </div>
+            <button class="btn-recipe" data-modal="banhmi">Xem Ý Nghĩa & Công Thức</button>
+          </div>
+        </div>
+
+        <!-- Dish 3 -->
+        <div class="dish-card">
+          <div class="dish-header">
+            <h4 class="dish-title">Bún Chả Kinh Kỳ</h4>
+            <span class="dish-region">Hà Nội</span>
+          </div>
+          <div class="dish-body">
+            <p class="dish-desc">Chả miếng và chả băm nướng xém than hoa thơm ngát, ăn kèm nước chấm chua ngọt ấm nóng, đu đủ muối và bún lá trắng tinh.</p>
+            <div class="dish-tags">
+              <span class="dish-tag">#ThanHoa</span>
+              <span class="dish-tag">#KinhKỳ</span>
+              <span class="dish-tag">#ObamaAnthony</span>
+            </div>
+            <button class="btn-recipe" data-modal="pho">Xem Ý Nghĩa & Công Thức</button>
+          </div>
+        </div>
+
+        <!-- Dish 4 -->
+        <div class="dish-card">
+          <div class="dish-header">
+            <h4 class="dish-title">Cơm Tấm Sài Gòn</h4>
+            <span class="dish-region">Nam Bộ</span>
+          </div>
+          <div class="dish-body">
+            <p class="dish-desc">Hạt gạo tấm thơm dẻo cùng miếng sườn nướng mỡ hành óng ánh, bì heo dai giòn, chả trứng bùi béo và chén nước mắm chua ngọt kẹo quánh.</p>
+            <div class="dish-tags">
+              <span class="dish-tag">#SườnBìChả</span>
+              <span class="dish-tag">#MỡHành</span>
+              <span class="dish-tag">#SàiGòn</span>
+            </div>
+            <button class="btn-recipe" data-modal="banhmi">Xem Ý Nghĩa & Công Thức</button>
+          </div>
+        </div>
+
+        <!-- Dish 5 -->
+        <div class="dish-card">
+          <div class="dish-header">
+            <h4 class="dish-title">Bún Bò Xứ Huế</h4>
+            <span class="dish-region">Trung Bộ</span>
+          </div>
+          <div class="dish-body">
+            <p class="dish-desc">Nước dùng cay nồng hương sả, đậm đà vị mắm ruốc truyền thống, sợi bún to tròn kết hợp cùng bắp bò, giò heo và chả cua nồng ấm.</p>
+            <div class="dish-tags">
+              <span class="dish-tag">#MắmRuốc</span>
+              <span class="dish-tag">#CayNồng</span>
+              <span class="dish-tag">#CốĐô</span>
+            </div>
+            <button class="btn-recipe" data-modal="pho">Xem Ý Nghĩa & Công Thức</button>
+          </div>
+        </div>
+
+        <!-- Dish 6 -->
+        <div class="dish-card">
+          <div class="dish-header">
+            <h4 class="dish-title">Cà Phê Trứng Hà Nội</h4>
+            <span class="dish-region">Đặc Sản</span>
+          </div>
+          <div class="dish-body">
+            <p class="dish-desc">Cà phê Robusta đắng đậm dưới đáy hòa cùng lớp kem lòng đỏ trứng gà đánh bông mịn ngọt ngào như tiramisu, sáng tạo từ năm 1946.</p>
+            <div class="dish-tags">
+              <span class="dish-tag">#Giảng1946</span>
+              <span class="dish-tag">#SángTạo</span>
+              <span class="dish-tag">#CàPhêViệt</span>
+            </div>
+            <button class="btn-recipe" data-modal="banhmi">Xem Ý Nghĩa & Công Thức</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3: TRADITIONAL COSTUMES ================= -->
+  <section class="cultural-section" id="costumes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="sec_costume_tag">Dòng Chảy Cổ Phục & Thẩm Mỹ Dân Tộc</span>
+        <h2 data-i18n="sec_costume_title">Sắc Hương Cổ Phục & Áo Dài</h2>
+        <p data-i18n="sec_costume_desc">Mỗi nếp áo, tà lụa và đường kim mũi chỉ là cả một pho sử hào hùng về cốt cách thanh cao, phẩm hạnh đoan trang của người Việt.</p>
+        <div class="section-divider">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
+        </div>
+      </div>
+
+      <!-- Costume Spotlight Showcase -->
+      <div class="costume-showcase">
+        <div class="costume-media">
+          <img src="assets/images/costumes-vietnam.jpg" alt="Phụ nữ Việt duyên dáng trong bộ Áo Nhật Bình hoàng gia triều Nguyễn thêu phượng hoàng và mấn vàng">
+        </div>
+        <div class="costume-info">
+          <span class="costume-era">Hoàng Cung Triều Nguyễn (1802 - 1945)</span>
+          <h3>Áo Nhật Bình & Áo Ngũ Thân</h3>
+          <p class="costume-desc">
+            Áo Nhật Bình là thường phục tôn quý bậc nhất dành cho Hoàng thái hậu, Hoàng hậu, Công chúa triều Nguyễn. Cổ áo hình chữ nhật viền dải hoa văn ngũ hành tượng trưng cho trời đất, kết hợp cùng khăn vành dây vàng lộng lẫy và đôi hài thêu chim phượng.
+          </p>
+
+          <ul class="costume-details-list">
+            <li class="costume-detail-item">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span><strong>Chất liệu cao cấp:</strong> Gấm sa, the, đoạn tơ tằm dệt thủ công từ làng lụa Vạn Phúc, thêu chỉ tơ và chỉ kim tuyến vàng ròng.</span>
+            </li>
+            <li class="costume-detail-item">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span><strong>Màu sắc phẩm trật:</strong> Vàng chính sắc (Hoàng hậu), Tím than & Đỏ (Công chúa), Xanh lam ngọc (Cung tần).</span>
+            </li>
+            <li class="costume-detail-item">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span><strong>Triết lý ngũ thường:</strong> Năm thân áo tượng trưng cho Nhân - Lễ - Nghĩa - Trí - Tín, bốn thân bao bọc cha mẹ bên vợ bên chồng và thân con ở trong.</span>
+            </li>
+          </ul>
+
+          <button class="btn btn-outline" data-modal="aodai">Tìm Hiểu Lịch Sử Áo Dài Qua Các Triều Đại</button>
+        </div>
+      </div>
+
+      <!-- Costumes Historical Timeline Grid -->
+      <div class="costumes-timeline-grid">
+        <div class="timeline-costume-card">
+          <h4>Áo Giao Lĩnh</h4>
+          <div class="period">Thời Lý - Trần - Lê (TK 11 - 18)</div>
+          <p>Cổ áo vắt chéo sang phải, tay thụng rộng rãi khoan thai, thể hiện nền văn hiến độc lập tự chủ và khí phách triều đại.</p>
+        </div>
+
+        <div class="timeline-costume-card">
+          <h4>Áo Tứ Thân & Nón Ba Tầm</h4>
+          <div class="period">Bắc Bộ Dân Gian</div>
+          <p>Bốn vạt buộc chéo duyên dáng trước bụng, nón quai thao thắt dải yếm đào, biểu tượng vẻ đẹp mộc mạc dịu hiền của thôn nữ.</p>
+        </div>
+
+        <div class="timeline-costume-card active">
+          <h4>Áo Ngũ Thân Tay Chẽn</h4>
+          <div class="period">Thời Chúa Nguyễn & Vua Minh Mạng</div>
+          <p>Tiền thân trực tiếp của Áo Dài ngày nay. Năm nút cài phong nhã, đường nét gãy gọn tôn vinh sự nghiêm cẩn lễ nghi.</p>
+        </div>
+
+        <div class="timeline-costume-card">
+          <h4>Áo Dài Hiện Đại</h4>
+          <div class="period">Từ Thế Kỷ 20 Đến Nay</div>
+          <p>Quốc phục kiêu hãnh của Việt Nam trên trường quốc tế, tôn vinh trọn vẹn đường nét uyển chuyển của người phụ nữ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 4: TRADITIONAL MUSIC & SOUND STUDIO ================= -->
+  <section class="cultural-section" id="music" style="background: rgba(16, 22, 29, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="sec_music_tag">Thanh Âm Ngàn Năm & Di Sản Nhân Loại</span>
+        <h2 data-i18n="sec_music_title">Thanh Âm Đất Mẹ & Nhạc Cụ Dân Tộc</h2>
+        <p data-i18n="sec_music_desc">Lắng nghe hồn thiêng sông núi qua tiếng đàn bầu nỉ non, nhã nhạc cung đình tôn nghiêm và không gian cồng chiêng đại ngàn.</p>
+        <div class="section-divider">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
+        </div>
+      </div>
+
+      <div class="music-layout">
+        <!-- Visual Story Card -->
+        <div class="music-story-card">
+          <div class="music-story-img">
+            <img src="assets/images/music-vietnam.jpg" alt="Nghệ sĩ diễn tấu Đàn Tranh trong không gian trà đạo thanh tịnh và lồng đèn ấm áp">
+          </div>
+          <div class="music-story-content">
+            <span class="badge" style="margin-bottom: 12px;">Di Sản Âm Nhạc UNESCO</span>
+            <h3>Bản Hòa Ca Cội Nguồn Dân Tộc</h3>
+            <p>
+              Âm nhạc cổ truyền Việt Nam sử dụng hệ thống ngũ cung (Hò - Xự - Xang - Xê - Cống), mang tính chất ngẫu hứng tinh vi, luyến láy tình cảm như ngữ điệu trầm bổng của tiếng nói người Việt.
+            </p>
+            <div class="music-unesco-tags">
+              <span class="music-tag">Nhã Nhạc Cung Đình</span>
+              <span class="music-tag">Quan Họ Bắc Ninh</span>
+              <span class="music-tag">Cồng Chiêng Tây Nguyên</span>
+              <span class="music-tag">Đờn Ca Tài Tử</span>
+              <span class="music-tag">Hát Ca Trù</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Virtual Sound Studio Pad -->
+        <div class="sound-studio-card">
+          <div class="studio-header">
+            <h3>Phòng Thử Âm Nhạc Cụ Dân Tộc</h3>
+            <p>Chạm vào từng nhạc cụ bên dưới để lắng nghe âm hưởng mộc mạc chân thực được tạo lập trực tiếp bằng Web Audio API!</p>
+          </div>
+
+          <div class="instruments-grid">
+            <!-- 1. Dan Bau -->
+            <div class="instrument-pad" data-instrument="danbau" id="pad-danbau">
+              <div class="pad-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <span class="badge badge-red" style="font-size: 0.65rem; padding: 2px 6px;">Độc Huyền Cầm</span>
+              </div>
+              <h4 class="pad-name">Đàn Bầu</h4>
+              <p class="pad-desc">Âm bồi ngân nga, uốn lượn như giọng hát con người.</p>
+            </div>
+
+            <!-- 2. Dan Tranh -->
+            <div class="instrument-pad" data-instrument="dantranh" id="pad-dantranh">
+              <div class="pad-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="badge" style="font-size: 0.65rem; padding: 2px 6px;">Thập Lục Huyền</span>
+              </div>
+              <h4 class="pad-name">Đàn Tranh</h4>
+              <p class="pad-desc">16 dây tơ trong trẻo, róc rách như dòng suối hoa.</p>
+            </div>
+
+            <!-- 3. Trong Hoi -->
+            <div class="instrument-pad" data-instrument="trong" id="pad-trong">
+              <div class="pad-icon-wrap">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>
+                <span class="badge badge-red" style="font-size: 0.65rem; padding: 2px 6px;">Âm Vang</span>
+              </div>
+              <h4 class="pad-name">Trống Lễ Hội</h4>
+              <p class="pad-desc">Tiếng trống đồng, trống hội dồn dập rền vang non sông.</p>
+            </div>
+
+            <!-- 4. Cong Chieng -->
+            <div class="instrument-pad" data-instrument="congchieng" id="pad-congchieng">
+              <div class="pad-icon-wrap">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="currentColor"/><circle cx="12" cy="12" r="3" fill="#080b0e"/></svg>
+                <span class="badge" style="font-size: 0.65rem; padding: 2px 6px;">Đại Ngàn</span>
+              </div>
+              <h4 class="pad-name">Cồng Chiêng</h4>
+              <p class="pad-desc">Âm vang đại ngàn Tây Nguyên huyền bí, trang nghiêm.</p>
+            </div>
+          </div>
+
+          <!-- Pentatonic Scale Row -->
+          <div class="pentatonic-scale-wrap">
+            <div class="pentatonic-title">Thử Giai Điệu Ngũ Cung Truyền Thống:</div>
+            <div class="scale-notes-row">
+              <button class="note-btn" data-note="ho">Hò</button>
+              <button class="note-btn" data-note="xu">Xự</button>
+              <button class="note-btn" data-note="xang">Xang</button>
+              <button class="note-btn" data-note="xe">Xê</button>
+              <button class="note-btn" data-note="cong">Cống</button>
+              <button class="note-btn" data-note="phan">Phan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 5: FESTIVALS & CUSTOMS ================= -->
+  <section class="cultural-section" id="festivals">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="sec_festivals_tag">Hồn Quê & Phong Tục Ngàn Đời</span>
+        <h2 data-i18n="sec_festivals_title">Lễ Hội & Phong Tục Truyền Thống</h2>
+        <p data-i18n="sec_festivals_desc">Nơi cộng đồng giao hòa với tiền nhân đất trời, gìn giữ đạo lý "Uống nước nhớ nguồn" thiêng liêng đời đời bền vững.</p>
+        <div class="section-divider">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
+        </div>
+      </div>
+
+      <!-- Festival Hero Wrapper -->
+      <div class="festival-hero-wrap">
+        <img src="assets/images/festivals-vietnam.jpg" alt="Lễ hội đêm rằm phố cổ Hội An với hoa đăng lung linh trên dòng sông Hoài">
+        <div class="festival-hero-content">
+          <span class="badge badge-red" style="margin-bottom: 8px;">Đêm Rằm Phố Hội</span>
+          <h3>Hội Thả Hoa Đăng Sông Hoài</h3>
+          <p>Mỗi đêm 14 âm lịch hàng tháng, cả phố cổ Hội An tắt điện, thắp sáng hàng vạn lồng đèn lụa và người dân cùng thả những đóa hoa đăng gửi gắm lời nguyện ước an lành trôi nhẹ trên dòng nước.</p>
+        </div>
+      </div>
+
+      <!-- Festivals Cards Grid -->
+      <div class="festivals-grid">
+        <!-- Festival 1: Tet Nguyen Dan -->
+        <div class="festival-card">
+          <span class="festival-date-badge">Mùng 1 Tháng Giêng Âm Lịch</span>
+          <h3 class="festival-card-title">Tết Nguyên Đán</h3>
+          <p class="festival-card-desc">Tết cổ truyền thiêng liêng nhất của dân tộc, thời khắc sum vầy gia đình, đón chào xuân mới, thờ phụng tổ tiên và ước vọng vạn sự hanh thông.</p>
+          <ul class="festival-highlights">
+            <li class="festival-highlight-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg>
+              Bánh Chưng xanh, Bánh Tét, dưa hành câu đối đỏ
+            </li>
+            <li class="festival-highlight-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg>
+              Phong tục mừng tuổi (lì xì) đầu xuân, xông đất cầu may
+            </li>
+          </ul>
+        </div>
+
+        <!-- Festival 2: Hung King -->
+        <div class="festival-card">
+          <span class="festival-date-badge">Mùng 10 Tháng 3 Âm Lịch</span>
+          <h3 class="festival-card-title">Giỗ Tổ Hùng Vương</h3>
+          <p class="festival-card-desc">Quốc lễ tri ân công đức các Vua Hùng dựng nước Văn Lang tại núi Nghĩa Lĩnh, Phú Thọ. Biểu tượng tối thượng của tinh thần đại đoàn kết toàn dân tộc.</p>
+          <ul class="festival-highlights">
+            <li class="festival-highlight-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg>
+              Nghi thức rước kiệu hoa, dâng bánh Chưng bánh Giầy
+            </li>
+            <li class="festival-highlight-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg>
+              Di sản văn hóa phi vật thể Tín ngưỡng thờ cúng Hùng Vương
+            </li>
+          </ul>
+        </div>
+
+        <!-- Festival 3: Mid-Autumn -->
+        <div class="festival-card">
+          <span class="festival-date-badge">Rằm Tháng 8 Âm Lịch</span>
+          <h3 class="festival-card-title">Tết Trung Thu (Hội Trăng Rằm)</h3>
+          <p class="festival-card-desc">Tết thiếu nhi và ngày hội sum họp rộn rã tiếng trống múa lân, rước đèn ông sao ngũ sắc dưới ánh trăng rằm tháng Tám trong trẻo dịu êm.</p>
+          <ul class="festival-highlights">
+            <li class="festival-highlight-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg>
+              Mâm cỗ trông trăng hình chó bưởi, bánh nướng bánh dẻo
+            </li>
+            <li class="festival-highlight-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg>
+              Múa Lân - Sư - Rồng tưng bừng khắp nẻo phố phường
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 6: INTERACTIVE EXPERIENCE ZONE ================= -->
+  <section class="cultural-section" id="experience" style="background: rgba(16, 22, 29, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="sec_exp_tag">Tương Tác Văn Hóa Trực Quan</span>
+        <h2 data-i18n="sec_exp_title">Góc Trải Nghiệm Tương Tác</h2>
+        <p data-i18n="sec_exp_desc">Thả chiếc hoa đăng gửi gắm lời nguyện ước an lành và thử thách vốn kiến thức văn hóa dân tộc của bạn.</p>
+        <div class="section-divider">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
+        </div>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="experience-tabs">
+        <button class="exp-tab-btn active" data-target="lantern-exp-panel" data-i18n="tab_lantern">
+          🪷 Thả Hoa Đăng Cầu An
+        </button>
+        <button class="exp-tab-btn" data-target="quiz-exp-panel" data-i18n="tab_quiz">
+          🏮 Đố Vui Văn Hóa
+        </button>
+      </div>
+
+      <!-- Panel 1: Virtual Floating Lantern Ceremony -->
+      <div class="exp-panel active" id="lantern-exp-panel">
+        <div class="lantern-wrapper">
+          <div class="lantern-canvas-container">
+            <canvas id="lantern-water-canvas"></canvas>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="lantern-controls-bar">
+            <!-- Color Selector -->
+            <div class="color-select-group">
+              <label>Sắc Hoa Sen</label>
+              <div class="lantern-colors">
+                <span class="color-chip active" data-color="#f472b6" style="background: #f472b6;" title="Sen Hồng (Tình Yêu & Bình An)"></span>
+                <span class="color-chip" data-color="#f59e0b" style="background: #f59e0b;" title="Hoàng Kim (Tài Lộc & Công Danh)"></span>
+                <span class="color-chip" data-color="#38bdf8" style="background: #38bdf8;" title="Lam Ngọc (Trí Tuệ & Bình Yên)"></span>
+                <span class="color-chip" data-color="#34d399" style="background: #34d399;" title="Bích Thủy (Sức Khỏe & Trường Thọ)"></span>
+                <span class="color-chip" data-color="#ffffff" style="background: #ffffff;" title="Bạch Yến (Thanh Tịnh & Phúc Lành)"></span>
+              </div>
+            </div>
+
+            <!-- Wish Input -->
+            <div class="wish-input-group">
+              <label>Lời Nguyện Ước Của Bạn</label>
+              <input type="text" id="user-wish-input" class="wish-input" placeholder="Nhập lời cầu chúc cho gia đình, người thương hoặc quê hương..." maxlength="60">
+            </div>
+
+            <!-- Release Button -->
+            <button class="btn btn-red" id="release-lantern-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              Thả Đăng
+            </button>
+          </div>
+
+          <!-- Wishes Stream -->
+          <div class="wish-feed" id="wish-feed">
+            <div class="wish-bubble">🪷 "Cầu cho cha mẹ bách niên giai lão, an khang trường thọ"</div>
+            <div class="wish-bubble">🪷 "Cầu non sông đất Việt thái bình thịnh trị muôn đời"</div>
+            <div class="wish-bubble">🪷 "Ước mong kỳ thi sắp tới đỗ đạt thủ khoa"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: Cultural Trivia Quiz -->
+      <div class="exp-panel" id="quiz-exp-panel">
+        <div class="quiz-wrapper">
+          <div id="quiz-card-body">
+            <div class="quiz-header-bar">
+              <span class="quiz-step-count" id="quiz-step-count">Câu hỏi 1 / 8</span>
+              <span class="quiz-score-badge" id="quiz-score">0 Điểm</span>
+            </div>
+
+            <div class="quiz-progress-track">
+              <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+            </div>
+
+            <h3 class="quiz-question-text" id="quiz-question">Đang tải câu hỏi văn hóa...</h3>
+
+            <div class="quiz-options-list" id="quiz-options">
+              <!-- Rendered via JS -->
+            </div>
+
+            <div class="quiz-feedback-box" id="quiz-feedback"></div>
+
+            <div class="quiz-actions">
+              <button class="btn btn-primary" id="quiz-next-btn" style="display: none;">Câu Tiếp Theo</button>
+            </div>
+          </div>
+
+          <!-- Result View -->
+          <div class="quiz-result-view" id="quiz-result"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 7: TRADITIONAL CRAFT VILLAGES ================= -->
+  <section class="cultural-section" id="crafts">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Bàn Tay Vàng & Kỷ Vật Non Sông</span>
+        <h2>Tinh Hoa Làng Nghề Cổ Truyền</h2>
+        <p>Hàng trăm làng nghề thủ công trăm tuổi khắp mọi miền tổ quốc lưu giữ hồn cốt tinh xảo của cha ông.</p>
+        <div class="section-divider">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15 8L22 9L17 14L18 21L12 17.5L6 21L7 14L2 9L9 8L12 2Z"/></svg>
+        </div>
+      </div>
+
+      <div class="craft-villages-grid">
+        <div class="craft-card">
+          <div class="craft-icon">🏺</div>
+          <h4 class="craft-name">Gốm Bát Tràng</h4>
+          <div class="craft-location">Gia Lâm, Hà Nội (700+ Năm)</div>
+          <p class="craft-desc">Dòng men rạn cổ, men lam tinh tế được nhào nặn từ đất sét phù sa sông Hồng qua bàn tay người thợ gốm tài hoa.</p>
+        </div>
+
+        <div class="craft-card">
+          <div class="craft-icon">🧵</div>
+          <h4 class="craft-name">Lụa Vạn Phúc</h4>
+          <div class="craft-location">Hà Đông, Hà Nội (1000+ Năm)</div>
+          <p class="craft-desc">Lụa tơ tằm mềm mại, ấm vào mùa đông và mát rượi vào mùa hè, từng được tiến cống phục vụ vua chúa triều đình xưa.</p>
+        </div>
+
+        <div class="craft-card">
+          <div class="craft-icon">🖼️</div>
+          <h4 class="craft-name">Tranh Dân Gian Đông Hồ</h4>
+          <div class="craft-location">Thuận Thành, Bắc Ninh</div>
+          <p class="craft-desc">In trên giấy điệp óng ánh bằng vỏ sò biển, màu sắc tự nhiên từ cây cỏ: vàng hoa hòe, đen than rơm, đỏ gỗ vang.</p>
+        </div>
+
+        <div class="craft-card">
+          <div class="craft-icon">👒</div>
+          <h4 class="craft-name">Nón Lá Làng Chuông</h4>
+          <div class="craft-location">Thanh Oai, Hà Nội (300+ Năm)</div>
+          <p class="craft-desc">Chiếc nón lá trắng tinh khôi khâu bằng lá lụi tỉ mỉ với 16 vành tre uốn lượn tôn vinh nét dịu dàng người con gái Việt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MASTER MODAL CONTAINER ================= -->
+  <div class="modal-overlay" id="cultural-modal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Đóng bảng thông tin">&times;</button>
+      <h3 class="modal-title" id="modal-title">Tiêu Đề Di Sản</h3>
+      <div class="modal-subtitle" id="modal-sub">Thông tin phụ</div>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Content inserted dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BACK TO TOP ================= -->
+  <button class="back-to-top" id="back-to-top-btn" title="Lên đầu trang">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+
+  <!-- ================= SITE FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand Info & Epic Quote -->
+        <div class="footer-brand">
+          <h3 class="footer-brand-title">HỒN VIỆT</h3>
+          <p class="footer-brand-desc" data-i18n="footer_desc">
+            Trang thông tin & bảo tồn di sản văn hóa truyền thống Việt Nam. Tôn vinh vẻ đẹp ngàn năm của dân tộc trong kỷ nguyên hội nhập toàn cầu.
+          </p>
+          <div class="footer-quote">
+            "Như nước Đại Việt ta từ trước,<br>
+            Vốn xưng nền văn hiến đã lâu."<br>
+            <span style="font-size: 0.8rem; color: var(--gold-primary);">— Bình Ngô Đại Cáo (Nguyễn Trãi)</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Heritage Links -->
+        <div>
+          <h4 class="footer-col-title">Di Sản</h4>
+          <ul class="footer-links">
+            <li><a href="#heritage" class="footer-link">Vịnh Hạ Long & Tràng An</a></li>
+            <li><a href="#heritage" class="footer-link">Cố Đô Huế & Nhã Nhạc</a></li>
+            <li><a href="#heritage" class="footer-link">Phố Cổ Hội An & Mỹ Sơn</a></li>
+            <li><a href="#heritage" class="footer-link">Cồng Chiêng Tây Nguyên</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Gastronomy & Arts -->
+        <div>
+          <h4 class="footer-col-title">Mỹ Vị & Nghệ Thuật</h4>
+          <ul class="footer-links">
+            <li><a href="#cuisine" class="footer-link">Phở Bò Truyền Thống</a></li>
+            <li><a href="#cuisine" class="footer-link">Bánh Mì & Cà Phê Trứng</a></li>
+            <li><a href="#costumes" class="footer-link">Cổ Phục Áo Nhật Bình</a></li>
+            <li><a href="#music" class="footer-link">Âm Sắc Độc Huyền Cầm</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Interactive -->
+        <div>
+          <h4 class="footer-col-title">Trải Nghiệm</h4>
+          <ul class="footer-links">
+            <li><a href="#experience" class="footer-link">Nghi Thức Thả Hoa Đăng</a></li>
+            <li><a href="#experience" class="footer-link">Đố Vui Khám Phá Văn Hóa</a></li>
+            <li><a href="#music" class="footer-link">Phòng Thử Nhạc Cụ Ngũ Cung</a></li>
+            <li><a href="#crafts" class="footer-link">Bản Đồ Làng Nghề Trăm Năm</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 Hồn Việt - Tinh Hoa Văn Hóa Ngàn Năm. Giữ toàn quyền bảo lưu.</div>
+        <div>Tự hào bản sắc Việt Nam 🇻🇳 • Đậm đà bản sắc dân tộc</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT MODULES ================= -->
+  <script src="js/audio.js"></script>
+  <script src="js/lantern.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
